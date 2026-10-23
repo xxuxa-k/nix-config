@@ -5,10 +5,13 @@ let
 in
 {
   nixpkgs.hostPlatform = "aarch64-darwin";
+  programs.fish.enable = true;
 
-  users.users.${username}.home = "/Users/${username}";
+  users.users.${username} = {
+    home = "/Users/${username}";
+    shell = pkgs.fish;
+  };
   system.primaryUser = username;
-
   system.defaults.dock.mru-spaces = false;
 
   # Keep the existing upstream Nix installation and nix.conf unmanaged.
@@ -29,8 +32,11 @@ in
     pkgs.nixd
     pkgs.nil
     pkgs.gh
+    pkgs.fish
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  environment.shells = [ pkgs.fish ];
 
   fonts.packages = [
     pkgs.nerd-fonts.hack

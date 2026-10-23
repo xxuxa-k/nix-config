@@ -8,26 +8,17 @@
   xdg.configFile."tmux".source = ../xdgconfig/tmux;
   xdg.configFile."starship".source = ../xdgconfig/starship;
 
-  programs.zsh = {
-    enable = true;
-
-    prezto = {
-      enable = true;
-      editor.keymap = "emacs";
-      prompt.theme = "sorin";
-
-      pmodules = [
-        "environment"
-        "terminal"
-        "editor"
-        "history"
-        "directory"
-        "utility"
-        "completion"
-        "syntax-highlighting"
-        "history-substring-search"
-        "prompt"
-      ];
-    };
-  };
+  #   programs.fish = {
+  #     enable = true;
+  #
+  #     shellInit = ''
+  #       set -gx EDITOR nvim
+  #       set -gx GIT_EDITOR nvim
+  #       set -gx STARSHIP_CONFIG "$HOME/.config/startship/config.toml"
+  #     '';
+  #
+  #     interactiveShellInit = ''
+  #       # 対話操作向けの設定
+  #     '';
+  #   };
 }
