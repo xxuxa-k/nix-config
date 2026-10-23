@@ -28,6 +28,7 @@ in
     pkgs.zoxide
     pkgs.nixd
     pkgs.nil
+    pkgs.gh
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
