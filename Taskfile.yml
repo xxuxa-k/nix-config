@@ -18,4 +18,4 @@ tasks:
 
   search:
     cmds:
-      - nix search --inputs-from . nixpkgs {{printf "^%s$" .CLI_ARGS | shellQuote}}
+      - nix search --inputs-from . nixpkgs {{printf "%s" .CLI_ARGS | shellQuote}}

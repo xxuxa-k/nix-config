@@ -33,13 +33,23 @@ in
     pkgs.nil
     pkgs.gh
     pkgs.fish
+    pkgs.zsh
+    pkgs.bat
+    pkgs.tree-sitter
+    pkgs.peco
+    pkgs.eza
+    pkgs.fzf
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
-  environment.shells = [ pkgs.fish ];
+  environment.shells = [
+    pkgs.fish
+    pkgs.zsh
+  ];
 
   fonts.packages = [
     pkgs.nerd-fonts.hack
+    pkgs.nerd-fonts.ubuntu
   ];
 
   # Compatibility baseline for the first installation; do not bump routinely.
