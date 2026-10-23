@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - nix run --inputs-from . 'nix-darwin#darwin-rebuild' -- build --flake '.#default'
+      - sudo nix run --inputs-from . 'nix-darwin#darwin-rebuild' -- switch --flake '.#default'
+
+  build:
+    cmds:
+      - nix run --inputs-from . 'nix-darwin#darwin-rebuild' -- build --flake '.#default'
+
+  switch:
+    cmds:
+      - sudo nix run --inputs-from . 'nix-darwin#darwin-rebuild' -- switch --flake '.#default'
+
+  search:
+    cmds:
+      - nix search --inputs-from . nixpkgs {{printf "^%s$" .CLI_ARGS | shellQuote}}

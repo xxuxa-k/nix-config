@@ -1,0 +1,9 @@
+[ghq]
+ root = ~/ghq/
+
+[init]
+defaultBranch = main
+
+[user]
+name = xxuxa-k
+email = xyz@tk-tech.xyz
