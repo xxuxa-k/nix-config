@@ -62,23 +62,16 @@ return {
           }
         },
       })
-      vim.lsp.config("powershell_es", {
-        filetypes = { "ps1", "psm1", "psd1" },
-        bundle_path = "~/PowerShellEditorServices",
-        init_options = {
-          enableProfileLoading = false,
-        },
-      })
       vim.lsp.enable({
         "lua_ls",
         "gopls",
         "bashls",
-        "powershell_es",
         "html",
         "tailwindcss",
         "cssls",
         "jsonls",
         "biome",
+        "nixd",
       })
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup('UserLspStartTs', { clear = true }),

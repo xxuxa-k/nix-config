@@ -46,7 +46,6 @@ in
       pkgs.direnv
       pkgs.zoxide
       pkgs.nixd
-      pkgs.nil
       pkgs.gh
       pkgs.fish
       pkgs.zsh
@@ -55,6 +54,7 @@ in
       pkgs.peco
       pkgs.eza
       pkgs.fzf
+      pkgs.delta
       inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
