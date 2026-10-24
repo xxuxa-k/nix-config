@@ -1,6 +1,7 @@
 set -gx EDITOR nvim
 set -gx GIT_EDITOR nvim
 set -gx STARSHIP_CONFIG "$HOME/.config/starship/config.toml"
+set -gx NB_DIR "$HOME/ghq/github.com/xxuxa-k/nb"
 
 function ll
   eza -ahl --git $argv

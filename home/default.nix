@@ -9,4 +9,6 @@
   xdg.configFile."tmux".source = ../xdgconfig/tmux;
   xdg.configFile."starship".source = ../xdgconfig/starship;
   xdg.configFile."fish".source = ../xdgconfig/fish;
+  xdg.configFile."vim".source = ../xdgconfig/vim;
+  xdg.configFile."sqlite3".source = ../xdgconfig/sqlite3;
 }

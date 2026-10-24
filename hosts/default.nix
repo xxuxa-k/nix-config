@@ -55,6 +55,7 @@ in
       pkgs.eza
       pkgs.fzf
       pkgs.delta
+      pkgs.sqlite
       inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
