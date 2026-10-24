@@ -1,7 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, username, ... }:
 
 let
-  username = "userx";
   githubusername = "xxuxa-k";
 in
   {

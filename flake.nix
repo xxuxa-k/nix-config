@@ -13,21 +13,24 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, home-manager, ... }: {
-    darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
-      specialArgs = { inherit inputs; };
+  outputs = inputs@{ self, nix-darwin, home-manager, ... }:
+    let
+      username = "userx";
+    in {
+      darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit inputs username; };
 
-      modules = [
-        ./hosts/default.nix
-        { system.configurationRevision = self.rev or self.dirtyRev or null; }
+        modules = [
+          ./hosts/default.nix
+          { system.configurationRevision = self.rev or self.dirtyRev or null; }
 
-        home-manager.darwinModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.userx = ./home/default.nix;
-        }
-      ];
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = ./home/default.nix;
+          }
+        ];
+      };
     };
-  };
 }
