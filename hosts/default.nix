@@ -18,6 +18,7 @@ in
     primaryUser = username;
   };
 
+  # https://github.com/nix-darwin/nix-darwin/tree/master/modules/system/defaults
   system.defaults = {
     dock = {
       mru-spaces = false;
@@ -30,6 +31,10 @@ in
     finder = {
       AppleShowAllExtensions = true;
       AppleShowAllFiles = true;
+    };
+    NSGlobalDomain = {
+      KeyRepeat = 2;
+      InitialKeyRepeat = 15;
     };
   };
 
