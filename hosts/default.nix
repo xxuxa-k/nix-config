@@ -1,9 +1,9 @@
 { pkgs, inputs, ... }:
 
 let
-username = "userx";
+  username = "userx";
 in
-{
+  {
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   nix.enable = false;
@@ -35,40 +35,42 @@ in
 
   environment.systemPackages = [
     pkgs.go_latest
-      pkgs.gopls
-      pkgs.deno
-      pkgs.starship
-      pkgs.ghq
-      pkgs.go-task
-      pkgs.tmux
-      pkgs.ripgrep
-      pkgs.mise
-      pkgs.direnv
-      pkgs.zoxide
-      pkgs.nixd
-      pkgs.gh
-      pkgs.fish
-      pkgs.zsh
-      pkgs.bat
-      pkgs.tree-sitter
-      pkgs.peco
-      pkgs.eza
-      pkgs.fzf
-      pkgs.delta
-      pkgs.sqlite
-      inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
-      ];
+    pkgs.gopls
+    pkgs.deno
+    pkgs.starship
+    pkgs.ghq
+    pkgs.go-task
+    pkgs.tmux
+    pkgs.ripgrep
+    pkgs.mise
+    pkgs.direnv
+    pkgs.zoxide
+    pkgs.nixd
+    pkgs.gh
+    pkgs.fish
+    pkgs.zsh
+    pkgs.bat
+    pkgs.tree-sitter
+    pkgs.peco
+    pkgs.eza
+    pkgs.fzf
+    pkgs.delta
+    pkgs.sqlite
+    pkgs.wezterm
+    inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
 
   programs.fish.enable = true;
 
   environment.shells = [
     pkgs.fish
-      pkgs.zsh
+    pkgs.zsh
   ];
 
   fonts.packages = [
     pkgs.nerd-fonts.hack
-      pkgs.nerd-fonts.ubuntu
+    pkgs.nerd-fonts.symbols-only
+    pkgs.hackgen-font
+    pkgs.nerd-fonts.ubuntu
   ];
-
 }
