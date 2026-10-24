@@ -72,6 +72,7 @@ return {
         "jsonls",
         "biome",
         "nixd",
+        "tombi",
       })
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup('UserLspStartTs', { clear = true }),
