@@ -65,7 +65,6 @@ in
     pkgs.starship
     pkgs.ghq
     pkgs.go-task
-    pkgs.tmux
     pkgs.ripgrep
     pkgs.mise
     pkgs.direnv
@@ -90,6 +89,7 @@ in
   ];
 
   programs.fish.enable = true;
+
 
   environment.shells = [
     pkgs.fish
