@@ -73,6 +73,8 @@ return {
         "biome",
         "nixd",
         "tombi",
+        "jdtls",
+        "metals",
       })
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup('UserLspStartTs', { clear = true }),

@@ -3,6 +3,7 @@ local cgroup = vim.api.nvim_create_augroup("UserCustomAutoCmds", { clear = true 
 vim.api.nvim_create_autocmd("FileType", {
   group = cgroup,
   pattern = {
+    "javascript",
     "typescript",
     "typescriptreact",
     "go",
@@ -12,6 +13,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "markdown",
     "nix",
     "toml",
+    "java",
+    "scala",
   },
   callback = function()
     vim.opt_local.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

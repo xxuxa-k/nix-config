@@ -81,6 +81,9 @@ in
     pkgs.fzf
     pkgs.delta
     pkgs.jdk
+    pkgs.jdt-language-server
+    pkgs.metals
+    pkgs.scala
     pkgs.sqlite
     pkgs.wezterm
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
