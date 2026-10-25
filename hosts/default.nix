@@ -80,6 +80,7 @@ in
     pkgs.eza
     pkgs.fzf
     pkgs.delta
+    pkgs.jdk
     pkgs.sqlite
     pkgs.wezterm
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
