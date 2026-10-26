@@ -86,10 +86,10 @@ in
     pkgs.sqlite
     pkgs.wezterm
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
+    (pkgs.callPackage ../packages/slack-cli.nix {})
   ];
 
   programs.fish.enable = true;
-
 
   environment.shells = [
     pkgs.fish
