@@ -20,7 +20,6 @@
       darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit inputs username; };
 
-
         modules = [
           ./hosts/mac/default.nix
           { system.configurationRevision = self.rev or self.dirtyRev or null; }
@@ -46,9 +45,7 @@
       homeConfigurations."wsl" = home-manager.lib.homeManagerConfiguration {
         pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 
-        extraSpecialArgs = {
-          inherit inputs username;
-        };
+        extraSpecialArgs = { inherit inputs username; };
 
         modules = [
           ./hosts/wsl/default.nix
