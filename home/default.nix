@@ -1,7 +1,47 @@
-{ pkgs, ... }:
+{ pkgs, inputs, config, ... }:
 
-{
+let
+  githubusername = "xxuxa-k";
+in
+  {
   home.stateVersion = "26.05";
+
+  home.packages = [
+    pkgs.go_latest
+    pkgs.gopls
+    pkgs.deno
+    pkgs.starship
+    pkgs.ghq
+    pkgs.go-task
+    pkgs.ripgrep
+    pkgs.mise
+    pkgs.direnv
+    pkgs.zoxide
+    pkgs.nixd
+    pkgs.gh
+    pkgs.fish
+    pkgs.zsh
+    pkgs.bat
+    pkgs.tree-sitter
+    pkgs.peco
+    pkgs.eza
+    pkgs.fzf
+    pkgs.delta
+    pkgs.jdk
+    pkgs.jdt-language-server
+    pkgs.metals
+    pkgs.scala
+    pkgs.sqlite
+    inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
+    (pkgs.callPackage ../packages/slack-cli.nix {})
+  ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    GIT_EDITOR = "nvim";
+    STARSHIP_CONFIG = "${config.xdg.configHome}/starship/config.toml";
+    NB_DIR = "${config.home.homeDirectory}/ghq/github.com/${githubusername}/nb";
+  };
 
   xdg.enable = true;
 
@@ -9,10 +49,8 @@
   xdg.configFile."git".source = ../xdgconfig/git;
   xdg.configFile."mise".source = ../xdgconfig/mise;
   xdg.configFile."starship".source = ../xdgconfig/starship;
-  xdg.configFile."fish".source = ../xdgconfig/fish;
   xdg.configFile."vim".source = ../xdgconfig/vim;
   xdg.configFile."sqlite3".source = ../xdgconfig/sqlite3;
-  xdg.configFile."wezterm".source = ../xdgconfig/wezterm;
 
   programs.tmux = {
     enable = true;

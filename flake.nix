@@ -20,16 +20,38 @@
       darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
         specialArgs = { inherit inputs username; };
 
+
         modules = [
-          ./hosts/default.nix
+          ./hosts/mac/default.nix
           { system.configurationRevision = self.rev or self.dirtyRev or null; }
 
           home-manager.darwinModules.home-manager
           {
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = ./home/default.nix;
+            home-manager.users.${username} = {
+              imports = [ ./home/default.nix ];
+              programs.fish = {
+                enable = true;
+                interactiveShellInit = builtins.readFile ./xdgconfig/fish/config.fish;
+              };
+              xdg.configFile."fish/functions".source = ./xdgconfig/fish/functions;
+              xdg.configFile."wezterm".source = ./xdgconfig/wezterm;
+            };
           }
+        ];
+      };
+
+      homeConfigurations."wsl" = home-manager.lib.homeManagerConfiguration {
+        pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+
+        extraSpecialArgs = {
+          inherit inputs username;
+        };
+
+        modules = [
+          ./hosts/wsl/default.nix
         ];
       };
     };
