@@ -33,6 +33,7 @@ in
     pkgs.scala
     pkgs.sqlite
     pkgs.python3
+    pkgs.uv
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
     (pkgs.callPackage ../packages/slack-cli.nix {})
   ];
