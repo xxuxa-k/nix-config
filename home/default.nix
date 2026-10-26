@@ -34,6 +34,7 @@ in
     pkgs.sqlite
     pkgs.python3
     pkgs.uv
+    pkgs.openssl
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
     (pkgs.callPackage ../packages/slack-cli.nix {})
   ];
