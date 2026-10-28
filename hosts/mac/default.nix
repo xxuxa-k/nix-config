@@ -51,6 +51,11 @@
     SoftwareUpdate = {
       AutomaticallyInstallMacOSUpdates = false;
     };
+    CustomUserPreferences = {
+      "com.apple.inputmethod.Kotoeri" = {
+        JIMPrefLiveConversionKey = false;
+      };
+    };
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
