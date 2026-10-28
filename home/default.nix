@@ -35,6 +35,9 @@ in
     pkgs.python3
     pkgs.uv
     pkgs.openssl
+    pkgs.certbot
+    pkgs.awscli2
+    pkgs.ssm-session-manager-plugin
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
     (pkgs.callPackage ../packages/slack-cli.nix {})
   ];

@@ -17,6 +17,9 @@
 
   # https://github.com/nix-darwin/nix-darwin/tree/master/modules/system/defaults
   system.defaults = {
+    trackpad = {
+      Clicking = true;
+    };
     dock = {
       mru-spaces = false;
       show-recents = false;
@@ -35,8 +38,10 @@
       ShowRemovableMediaOnDesktop = false;
     };
     NSGlobalDomain = {
-      KeyRepeat = 2;
+      KeyRepeat = 1;
       InitialKeyRepeat = 15;
+      ApplePressAndHoldEnabled = true;
+      AppleEnableSwipeNavigateWithScrolls = true;
       "com.apple.mouse.tapBehavior" = 1;
     };
     menuExtraClock = {
@@ -47,6 +52,8 @@
       AutomaticallyInstallMacOSUpdates = false;
     };
   };
+
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   environment.systemPackages = [
     pkgs.wezterm
