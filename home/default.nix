@@ -40,7 +40,8 @@ in
     pkgs.ssm-session-manager-plugin
     pkgs.lemminx
     pkgs.lazygit
-    pkgs.hoppscotch
+    pkgs.jq
+    pkgs.bruno
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
     (pkgs.callPackage ../packages/slack-cli.nix {})
   ];

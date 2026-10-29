@@ -75,7 +75,9 @@
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "uninstall";
+    onActivation = {
+      cleanup = "uninstall";
+    };
     casks = [
       "wireshark-chmodbpf"
     ];
