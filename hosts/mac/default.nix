@@ -62,6 +62,7 @@
 
   environment.systemPackages = [
     pkgs.wezterm
+    pkgs.wireshark
   ];
 
   programs.fish.enable = true;
@@ -71,6 +72,14 @@
     pkgs.fish
     pkgs.zsh
   ];
+
+  homebrew = {
+    enable = true;
+    onActivation.cleanup = "uninstall";
+    casks = [
+      "wireshark-chmodbpf"
+    ];
+  };
 
   fonts.packages = [
     pkgs.nerd-fonts.hack

@@ -38,6 +38,9 @@ in
     pkgs.certbot
     pkgs.awscli2
     pkgs.ssm-session-manager-plugin
+    pkgs.lemminx
+    pkgs.lazygit
+    pkgs.hoppscotch
     inputs.neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default
     (pkgs.callPackage ../packages/slack-cli.nix {})
   ];
@@ -57,6 +60,7 @@ in
   xdg.configFile."starship".source = ../xdgconfig/starship;
   xdg.configFile."vim".source = ../xdgconfig/vim;
   xdg.configFile."sqlite3".source = ../xdgconfig/sqlite3;
+  xdg.configFile."lazygit".source = ../xdgconfig/lazygit;
 
   programs.tmux = {
     enable = true;

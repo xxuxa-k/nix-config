@@ -1,8 +1,10 @@
+# nix-config
 
-- https://github.com/NixOS/nix-installer
-```
-curl -sSfL https://artifacts.nixos.org/nix-installer | sh -s -- install --enable-flakes
-```
-
-- username -> whoami
-- chsh -s $(cat /etc/shell | rg fish)
+- flakeを有効にしてnixをインストール
+    - https://github.com/NixOS/nix-installer
+- homebrewをインストール
+    - https://brew.sh/ja/
+- flake.nixのusernameを$(whoami)に変更
+- task default
+- fishに変更
+    - chsh -s $(cat /etc/shell | rg fish)

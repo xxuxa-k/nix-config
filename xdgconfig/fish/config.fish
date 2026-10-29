@@ -15,4 +15,6 @@ if status is-interactive
   direnv hook fish | source
   task --completion fish | source
   eval (direnv hook fish)
+  # TODO: wslの場合パスが違う
+  eval "$(/opt/homebrew/bin/brew shellenv fish)"
 end

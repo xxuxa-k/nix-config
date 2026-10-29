@@ -40,6 +40,9 @@ return {
       vim.lsp.config("bashls", {
         filetypes = { "bash", "sh", "zsh" },
       })
+      vim.lsp.config("lemminx", {
+        filetypes = { "xml", "plist", "svg" },
+      })
       vim.lsp.config("lua_ls", {
         on_init = function(client)
           client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
@@ -75,6 +78,7 @@ return {
         "tombi",
         "jdtls",
         "metals",
+        "lemminx",
       })
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup('UserLspStartTs', { clear = true }),
